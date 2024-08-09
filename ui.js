@@ -24,3 +24,15 @@ function removeClass(element, className) {
     element.classList.remove(className);
   }
 }
+
+function toggleClass(element, className) {
+  element.classList.toggle(className);
+}
+
+function hasClass(element, className) {
+  return element.classList.contains(className);
+}
+
+function removeElement(element) {
+  element.remove();
+}
