@@ -36,3 +36,7 @@ function hasClass(element, className) {
 function removeElement(element) {
   element.remove();
 }
+
+function getStyle(element, property) {
+  return window.getComputedStyle(element).getPropertyValue(property);
+}
