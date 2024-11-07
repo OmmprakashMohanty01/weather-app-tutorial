@@ -40,3 +40,15 @@ function removeElement(element) {
 function getStyle(element, property) {
   return window.getComputedStyle(element).getPropertyValue(property);
 }
+
+function getComputedStyle(element) {
+  return window.getComputedStyle(element);
+}
+
+function getScrollPosition(element) {
+  var rect = element.getBoundingClientRect();
+  return {
+    x: rect.left + window.pageXOffset,
+    y: rect.top + window.pageYOffset
+  };
+}
