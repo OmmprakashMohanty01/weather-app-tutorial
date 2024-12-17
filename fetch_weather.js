@@ -23,3 +23,11 @@ function getWeatherByCoordinates(latitude, longitude, apiKey) {
     .then(data => console.log(data))
     .catch(error => console.error('Error:', error));
 }
+
+function getMultipleWeatherLocations(locations, apiKey) {
+  const url = `https://api.openweathermap.org/data/2.5/group?cnt=10&id=${locations.join(',')}&appid=${apiKey}&units=metric`;
+  fetch(url)
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error('Error:', error));
+}
