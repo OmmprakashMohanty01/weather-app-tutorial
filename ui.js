@@ -52,3 +52,15 @@ function getScrollPosition(element) {
     y: rect.top + window.pageYOffset
   };
 }
+
+function getScrollIntoViewPosition(element) {
+  var rect = element.getBoundingClientRect();
+  var scrollLeft = element.scrollLeft;
+  var scrollTop = element.scrollTop;
+  var scrollWidth = element.scrollWidth;
+  var scrollHeight = element.scrollHeight;
+  return {
+    x: rect.left - element.offsetLeft + scrollLeft - (document.documentElement.clientWidth || document.body.clientWidth) / 2,
+    y: rect.top - element.offsetTop + scrollTop - (document.documentElement.clientHeight || document.body.clientHeight) / 2
+  };
+}
