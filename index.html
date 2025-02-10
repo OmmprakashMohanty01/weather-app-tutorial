@@ -48,3 +48,40 @@ fetch('/city-search-result')
 }
 </style>
 <div id="city-result"></div>
+
+<script>
+fetch('/city-favorite-list')
+  .then(response => response.json())
+  .then(favoriteCities => {
+    const favoriteList = document.querySelector('#city-favorite-list');
+    favoriteList.innerHTML = '';
+    favoriteCities.forEach(city => {
+      const button = document.createElement('button');
+      const favoriteCount = document.createElement('span');
+      button.textContent = city.name;
+      favoriteCount.textContent = city.favoriteCount;
+      button.appendChild(favoriteCount);
+      favoriteList.appendChild(button);
+    });
+  })
+  .catch(error => console.error('Error:', error));
+</script>
+<style>
+#city-favorite-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+#city-favorite-list button {
+  cursor: pointer;
+}
+
+#city-favorite-list span {
+  color: #666;
+}
+</style>
+<div id="city-favorite-list"></div>
