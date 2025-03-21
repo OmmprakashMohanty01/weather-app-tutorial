@@ -64,3 +64,15 @@ function getScrollIntoViewPosition(element) {
     y: rect.top - element.offsetTop + scrollTop - (document.documentElement.clientHeight || document.body.clientHeight) / 2
   };
 }
+
+function getOffsetHeight(element) {
+  return element.offsetHeight;
+}
+
+function getOffsetWidth(element) {
+  return element.offsetWidth;
+}
+
+function getAspectRatio(element) {
+  return element.offsetWidth / element.offsetHeight;
+}
