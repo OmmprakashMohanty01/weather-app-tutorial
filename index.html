@@ -99,3 +99,18 @@ fetch('/city-favorite-list')
   font-size: 1.2rem;
 }
 </style>
+
+<div class="favorite-list-error">
+  <i class="fas fa-exclamation-triangle fa-spin"></i> Error loading favorites...
+</div>
+
+<style>
+  .favorite-list-error {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.2rem;
+    display: none;
+  }
+</style>
