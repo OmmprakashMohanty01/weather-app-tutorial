@@ -76,3 +76,9 @@ function getOffsetWidth(element) {
 function getAspectRatio(element) {
   return element.offsetWidth / element.offsetHeight;
 }
+
+function getViewportDimensions() {
+  var width = Math.max(document.documentElement.clientWidth, document.body.clientWidth);
+  var height = Math.max(document.documentElement.clientHeight, document.body.clientHeight);
+  return { width, height };
+}
