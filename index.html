@@ -114,3 +114,20 @@ fetch('/city-favorite-list')
     display: none;
   }
 </style>
+
+<style>
+  .favorite-list-loading-success {
+    display: block;
+  }
+  .favorite-list-loading-failure {
+    display: block;
+  }
+</style> 
+
+<div class="favorite-list-loading-success">
+  <i class="fas fa-check-circle fa-spin"></i> Favorites loaded successfully...
+</div>
+
+<div class="favorite-list-loading-failure">
+  <i class="fas fa-exclamation-triangle fa-spin"></i> Error loading favorites...
+</div>
