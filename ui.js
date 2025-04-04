@@ -82,3 +82,17 @@ function getViewportDimensions() {
   var height = Math.max(document.documentElement.clientHeight, document.body.clientHeight);
   return { width, height };
 }
+
+function getCentered(element) {
+  var rect = element.getBoundingClientRect();
+  var scrollLeft = rect.left + (element.offsetParent ? element.offsetParent.scrollLeft : 0);
+  var scrollTop = rect.top + (element.offsetParent ? element.offsetParent.scrollTop : 0);
+  return {
+    x: scrollLeft + (element.offsetWidth - rect.width) / 2,
+    y: scrollTop + (element.offsetHeight - rect.height) / 2
+  };
+}
+
+function getScrollDimensions(element) {
+  return { width: element.scrollWidth, height: element.scrollHeight };
+}
