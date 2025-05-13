@@ -69,3 +69,11 @@ function getWeatherForecastByPostalCode(postalCode, country, apiKey) {
     .then(data => console.log(data))
     .catch(error => console.error('Error:', error));
 }
+
+function getWeatherForecastByCoordinates(lat, lon, apiKey) {
+  const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+  fetch(url)
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error('Error:', error));
+}
