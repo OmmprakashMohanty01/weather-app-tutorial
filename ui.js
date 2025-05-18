@@ -96,3 +96,13 @@ function getCentered(element) {
 function getScrollDimensions(element) {
   return { width: element.scrollWidth, height: element.scrollHeight };
 }
+
+function getViewportPercentage(element) {
+  var viewportDimensions = getViewportDimensions();
+  var elementDimensions = { width: element.offsetWidth, height: element.offsetHeight };
+  var aspectRatio = getAspectRatio(element);
+  var viewportAspectRatio = viewportDimensions.width / viewportDimensions.height;
+  var percentageWidth = (1 - Math.abs((viewportAspectRatio - aspectRatio) / (aspectRatio + viewportAspectRatio))) * 100;
+  var percentageHeight = 100 / (1 + (viewportAspectRatio / aspectRatio));
+  return { width: percentageWidth, height: percentageHeight }
+}
