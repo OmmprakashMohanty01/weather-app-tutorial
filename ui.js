@@ -106,3 +106,24 @@ function getViewportPercentage(element) {
   var percentageHeight = 100 / (1 + (viewportAspectRatio / aspectRatio));
   return { width: percentageWidth, height: percentageHeight }
 }
+
+function getAspectRatio(element) {
+  var rect = element.getBoundingClientRect();
+  return rect.width / rect.height;
+}
+
+function getViewportDimensions() {
+  return {
+    width: window.innerWidth,
+    height: window.innerHeight
+  };
+}
+
+function getRelativePosition(element, target) {
+  var centeredElement = getCentered(element);
+  var targetRect = target.getBoundingClientRect();
+  return {
+    x: centeredElement.x + (targetRect.left - centeredElement.x),
+    y: centeredElement.y + (targetRect.top - centeredElement.y)
+  };
+}
