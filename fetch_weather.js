@@ -101,3 +101,31 @@ function getWeatherConditionByCoordinates(lat, lon, apiKey) {
     .then(data => console.log(data))
     .catch(error => console.error('Error:', error));
 }
+
+function formatWeatherData(data) {
+  const { weather, main, wind, coord } = data;
+  return {
+    condition: weather[0].description,
+    temperature: main.temp,
+    humidity: main.humidity,
+    windSpeed: wind.speed,
+    latitude: coord.lat,
+    longitude: coord.lon
+  };
+}
+
+// Using the formatWeatherData function
+
+function getFormatedWeatherConditionByCityName(cityName, country, apiKey) {
+  getWeatherConditionByCityName(cityName, country, apiKey)
+    .then(data => console.log(formatWeatherData(data)))
+    .catch(error => console.error('Error:', error));
+}
+
+function getFormatedWeatherConditionByPostalCode(postalCode, country, apiKey) {
+  return getWeatherConditionByPostalCode(postalCode, country, apiKey).then(data => formatWeatherData(data));
+}
+
+function getFormatedWeatherConditionByCoordinates(lat, lon, apiKey) {
+  return getWeatherConditionByCoordinates(lat, lon, apiKey).then(data => formatWeatherData(data));
+}
