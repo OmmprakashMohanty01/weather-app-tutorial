@@ -77,3 +77,27 @@ function getWeatherForecastByCoordinates(lat, lon, apiKey) {
     .then(data => console.log(data))
     .catch(error => console.error('Error:', error));
 }
+
+function getWeatherConditionByCityName(cityName, country, apiKey) {
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName},${country}&appid=${apiKey}&units=metric`;
+  fetch(url)
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error('Error:', error));
+}
+
+function getWeatherConditionByPostalCode(postalCode, country, apiKey) {
+  const url = `https://api.openweathermap.org/data/2.5/weather?zip=${postalCode},${country}&appid=${apiKey}&units=metric`;
+  fetch(url)
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error('Error:', error));
+}
+
+function getWeatherConditionByCoordinates(lat, lon, apiKey) {
+  const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+  fetch(url)
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error('Error:', error));
+}
